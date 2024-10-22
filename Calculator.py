@@ -16,12 +16,16 @@ class Calculator:
 
     #init function (This is just a constructor fuck you python)
     # A constructor is called when you create the object from the class
-    def __init__(self):# fuck you colon
-        print("...") # Dont really want to do anything rn here but python wont allow for empty functions
+    #def __init__(self):# fuck you colon
+    #    print("...") # Dont really want to do anything rn here but python wont allow for empty functions
+    # I ended up commenting it out because i made the whole class static meaning it doest become a object the functions are just called on the class
+    #   this way i dont have to instantiate a object from the class (using cal = Calculator()) before i can call the functions since
+    #       static means that they only exist once no multiples of the calculator
 
     # this is a function it gets a numeric value from the user
     # Gets a numeric value from the user will continue to ask until satisfied
-    # Returns a numeric value 
+    # Returns a numeric value
+    @staticmethod 
     def GetNumericValue():
         '''
             This is how functions should be commented in python
@@ -54,7 +58,8 @@ class Calculator:
 
         
     # This is the start function it will be called in a main program to init the
-    # calculators loop    
+    # calculators loop  
+    @staticmethod  
     def StartCalculator():
 
         # Clear terminal
@@ -85,20 +90,20 @@ class Calculator:
                     print(Operator + " is not a valid option\n") # Output to the user the input given is not valid
 
                 # Check if the user wants to exit the calculator
-                if(Operator == 0):
+                if(Operator == "0"):
                     # The user wants to exit the calculator
                     Continue = False # Set Continue to False to exit the Calculator loop
                 else:
                     # The User wants to complete a operation
-                    # Clear terminal
-                    os.system('cls')
+                    
+                    os.system('cls')# Clear terminal
 
                     # Get the values to calculate from the user
                     # This is done with functions as its duplicate functionality
                     # this way the code only exists once this has many benefits and should be done like this for best practice
-                    FirstValue = Calculator.__GetNumericValue() # Get the first numeric value from user
+                    FirstValue = Calculator.GetNumericValue() # Get the first numeric value from user
                     os.system('cls') # Clear terminal
-                    SecondValue = Calculator.__GetNumericValue() # Get the second numeric value from user
+                    SecondValue = Calculator.GetNumericValue() # Get the second numeric value from user
 
                     os.system("cls")# Clear terminal
 
